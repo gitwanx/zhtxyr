@@ -1,0 +1,114 @@
+/* ==========================================================================
+   第二课堂 · PC 布局层（基于原站源码结构重写布局，不改业务逻辑）
+   作用域：宽度 ≥ 900px 时生效，手机端保持原样
+   ========================================================================== */
+
+@media screen and (min-width: 900px) {
+
+  /* ---------- 0. 基础 ---------- */
+  html { font-size: 14px !important; }        /* 锁死动态 rem 基准，避免整体放大 2.8 倍 */
+  html, body { background: #f5f6f7 !important; }
+  body { font-size: 14px; }
+
+  /* ---------- 1. 左侧导航栏（原 tabbar 改造） ---------- */
+  .weui-tabbar {
+    position: fixed !important;
+    top: 0 !important; bottom: 0 !important;
+    left: 0 !important; right: auto !important;
+    transform: none !important;
+    width: 200px !important; max-width: 200px !important;
+    height: 100vh !important;
+    display: flex !important; flex-direction: column !important;
+    padding: 20px 0 0 !important;
+    background: #fff !important;
+    border-right: 1px solid #eceef0 !important;
+    box-shadow: none !important;
+    z-index: 3000 !important;
+  }
+  .weui-tabbar__item {
+    flex: 0 0 auto !important; width: 100% !important; height: 50px !important;
+    display: flex !important; flex-direction: row !important;
+    align-items: center !important; justify-content: flex-start !important;
+    gap: 10px !important; padding: 0 24px !important; box-sizing: border-box !important;
+    border-radius: 0 22px 22px 0 !important;
+  }
+  .weui-tabbar__icon { width: 22px !important; height: 22px !important; margin: 0 !important; }
+  .weui-tabbar__label { font-size: 14px !important; margin: 0 !important; color: #4a4a4f; }
+  .weui-bar__item_on { background: #eafaf4 !important; }
+  .weui-bar__item_on .weui-tabbar__label { color: #0bd699 !important; font-weight: 600; }
+
+  /* ---------- 2. 主内容区让出侧栏 ---------- */
+  #app {
+    margin: 0 !important; padding-left: 200px !important;
+    max-width: none !important; background: #f5f6f7 !important; box-shadow: none !important;
+  }
+  #app > div { padding-left: 0 !important; }
+
+  /* 首页横幅限高（不破坏其它布局） */
+  .van-swipe, .van-swipe-item, .swipe { max-height: 200px !important; }
+  .van-swipe-item img, .swipe img { width: 100% !important; height: 200px !important; object-fit: cover; border-radius: 10px; }
+
+  /* ---------- 3. 顶部横幅限高 ---------- */
+  .van-swipe, .van-swipe-item, .swipe { max-height: 200px !important; }
+  .van-swipe-item img, .swipe img { width: 100% !important; height: 200px !important; object-fit: cover; border-radius: 10px; }
+
+  /* ---------- 4. 弹窗居中限宽 ---------- */
+  .van-popup--bottom {
+    left: 50% !important; right: auto !important;
+    transform: translateX(-50%) !important;
+    max-width: 720px !important; border-radius: 14px 14px 0 0 !important;
+  }
+  .van-dialog { max-width: 420px !important; }
+  .weui-dialog { max-width: 420px !important; }
+
+  /* ---------- 5. 滚动条 ---------- */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb { background: #d5d8dc; border-radius: 4px; }
+  ::-webkit-scrollbar-track { background: #f4f5f6; }
+
+  /* ---------- 6. 登录页：左右两栏 ---------- */
+  .login {
+    display: flex !important; align-items: center !important; justify-content: center !important;
+    gap: 56px !important; padding-left: 200px !important; box-sizing: border-box;
+    background-size: cover !important; background-position: center !important;
+  }
+  .login-title {
+    position: relative !important; width: 480px !important; height: 320px !important;
+    flex: 0 0 480px; border-radius: 14px !important; overflow: hidden !important;
+    background-size: cover !important; background-position: center !important;
+    box-shadow: 0 10px 40px rgba(0,0,0,.12) !important;
+  }
+  .login-title .txt { padding: 24px 24px 0 !important; }
+  .login-title a { position: absolute !important; right: 16px !important; top: 14px !important; }
+  .contentLogin {
+    position: static !important; width: 420px !important; max-width: 420px !important;
+    padding: 40px 36px 32px !important; background: #fff !important;
+    border-radius: 16px !important; box-shadow: 0 12px 48px rgba(0,0,0,.14) !important;
+    margin: 0 !important;
+  }
+  .login-logo { width: 100% !important; text-align: center; height: auto !important; padding: 0 0 18px !important; }
+  .login-logo img { width: 60px !important; height: 60px !important; margin: 0 auto !important; display: block; }
+  .login-main { width: 100% !important; padding: 0 !important; background: transparent !important; }
+  .login-des { display: none !important; }
+  .login-main-inputs {
+    width: 100% !important; display: flex !important; align-items: center;
+    border-bottom: 1px solid #e8eaec !important; padding: 4px 0 !important; margin-bottom: 12px !important;
+  }
+  .login-main-inputs img { width: 18px !important; height: 18px !important; flex: 0 0 18px; opacity: .5; }
+  .login-main-sub {
+    flex: 1 !important; width: auto !important; height: 44px !important;
+    border: none !important; outline: none !important; font-size: 15px !important;
+    background: transparent !important; padding: 0 8px !important;
+  }
+  .login-forget { width: 100% !important; text-align: right !important; margin: 0 0 18px !important;
+    font-size: 13px !important; color: #a5a4a9 !important; }
+  .login-Submit { width: 100% !important; padding: 0 !important; }
+  .login-Submit .login-btn, .login-btn {
+    width: 100% !important; height: 46px !important; line-height: 46px !important;
+    font-size: 16px !important; border-radius: 8px !important; border: none !important;
+    background-color: #0bd699 !important; color: #fff !important;
+  }
+
+  /* ---------- 7. 选学校页 ---------- */
+  .school-list, .schoolList { max-width: 720px !important; margin: 0 auto !important; }
+}
