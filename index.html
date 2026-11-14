@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,viewport-fit=cover"><title id=title>第二课堂</title><link rel="shortcut icon" type=image/x-icon href=static/class.png><link rel=stylesheet href=//at.alicdn.com/t/font_1841796_cu7qggmsbxt.css><link rel=stylesheet href=/assets/css/common.css><script type=text/javascript src=/static/yb_h5.js></script><script src=https://sdk.amazonaws.com/js/aws-sdk-2.100.0.min.js></script><script type=text/javascript src=https://res.wx.qq.com/open/js/jweixin-1.6.0.js></script><script>function loadURL(url) {
+            var iFrame;
+            iFrame = document.createElement("iframe");
+            iFrame.setAttribute("src", url);
+            iFrame.setAttribute("style", "display:none;");
+            iFrame.setAttribute("height", "0px");
+            iFrame.setAttribute("width", "0px");
+            iFrame.setAttribute("frameborder", "0");
+            document.body.appendChild(iFrame);
+            // 发起请求后这个iFrame就没用了，所以把它从dom上移除掉
+            iFrame.parentNode.removeChild(iFrame);
+            iFrame = null;
+        }
+        // 10710
+         var title=document.getElementById('title')
+         var appWebsiteNavTitle=null
+        appWebsiteNavTitle=localStorage.getItem('appWebsiteNavTitle')
+          var schoolId=localStorage.getItem("schoolId")
+                 console.log(schoolId,"schoolId",appWebsiteNavTitle==null)
+           if(appWebsiteNavTitle==null){
+             if(schoolId==10710){
+                  title.innerHTML='课外实践学分认定'
+             }else if (schoolId==12861) {
+               title.innerHTML='浙江工匠'
+             }else{
+              title.innerHTML='第二课堂'
+             }
+           }else{
+            title.innerHTML=appWebsiteNavTitle
+           }
+
+          console.log(title,"title")
+          console.log( appWebsiteNavTitle,"appWebsiteNavTitle")</script><link href=./static/css/app.91d2b790c5c4929850e4baf4653e9a42.css?d0e495b88707ba225345 rel=stylesheet><style id="pc-layout">
+@media screen and (min-width: 900px){
+  html,body{background:#eef0f2}
+  #app{max-width:1180px;margin:0 auto;background:#fff;min-height:100vh;box-shadow:0 0 40px rgba(0,0,0,.07)}
+  .van-tabbar--fixed{top:0!important;bottom:auto!important;left:50%!important;right:auto!important;
+    transform:translateX(-50%)!important;width:100%!important;max-width:1180px!important;
+    height:54px!important;border-top:none!important;box-shadow:0 1px 0 #eceef0!important;z-index:2000!important}
+  .van-tabbar-item{flex-direction:row!important;gap:8px!important;font-size:14px!important}
+  .van-tabbar-item__icon{font-size:20px!important;margin-bottom:0!important}
+  .van-nav-bar--fixed{top:54px!important}
+  .van-swipe,.van-swipe-item,.swipe,.banner{max-height:220px!important}
+  .van-swipe-item img,.swipe img,.banner img{max-height:220px!important;object-fit:cover}
+  .van-popup--bottom{left:50%!important;transform:translateX(-50%)!important;max-width:760px;border-radius:12px 12px 0 0}
+  .van-dialog{max-width:420px}
+  ::-webkit-scrollbar{width:8px;height:8px}
+  ::-webkit-scrollbar-thumb{background:#d5d8dc;border-radius:4px}
+}
+
+@media screen and (min-width: 900px){
+  /* WeUI tabbar 置顶 */
+  .weui-tabbar{top:0!important;bottom:auto!important;left:50%!important;
+    transform:translateX(-50%)!important;width:100%!important;max-width:1180px!important;
+    height:56px!important;display:flex!important;background:#fff!important;
+    box-shadow:0 1px 0 #eceef0!important;z-index:3000!important;position:fixed!important}
+  .weui-tabbar__item{flex:1!important;display:flex!important;flex-direction:row!important;
+    align-items:center!important;justify-content:center!important;gap:8px!important;padding:0!important}
+  .weui-tabbar__icon{width:22px!important;height:22px!important;margin:0!important}
+  .weui-tabbar__label{font-size:14px!important;margin:0!important}
+  /* 内容下移，避开顶部导航 */
+  #app{padding-top:0}
+  .weui-tabbar ~ *{padding-top:0}
+}
+
+@media screen and (min-width: 900px){
+  /* 关键：锁死动态 rem 基准（原站 JS 会按屏宽设成 40px，导致整体放大 2.8 倍） */
+  html{font-size:14px!important}
+}
+
+@media screen and (min-width: 900px){
+  /* 横幅恢复完整比例，不裁切 */
+  .van-swipe,.van-swipe-item,.swipe,.banner{max-height:none!important}
+  .van-swipe-item img,.swipe img,.banner img{max-height:none!important;object-fit:contain}
+}
+</style></head><body><script>// 获取user-agent(今日校园扫一扫)
+      var userAgentJrxy = navigator.userAgent.toLowerCase();
+      // 判断user-agent中是否包含"cpdaily"
+      if (userAgentJrxy.indexOf("cpdaily") !== -1) {
+          var scriptElement = document.createElement('script');
+          scriptElement.src = 'https://static.campushoy.com/sdks/js/open/release/campushoy-2.0.1.js';
+          document.head.appendChild(scriptElement);
+      }</script><style type=text/css ref=stylesheet></style><div id=app></div><script type=text/javascript src=./static/js/manifest.8e71111a65d04ec3d245.1782281843738.js?d0e495b88707ba225345></script><script type=text/javascript src=./static/js/vendor.88c82ef64d46dd2971a1.1782281843738.js?d0e495b88707ba225345></script><script type=text/javascript src=./static/js/app.783caeef99aa74cf0c6b.1782281843738.js?d0e495b88707ba225345></script><script>
+/* 注册媒体代理：把 /fast/、/upload/ 的图片请求转回学校服务器 */
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw-media.js', { scope: '/' }).catch(function () {});
+  });
+}
+</script></body></html>

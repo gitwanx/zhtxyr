@@ -1,0 +1,22 @@
+[build]
+  publish = "."
+
+# 服务端动态图片（活动封面、头像、图标）代理回官方，前端路径不用改
+[[redirects]]
+  from = "/fast/*"
+  to = "https://txyr.jxvcie.edu.cn/fast/:splat"
+  status = 200
+  force = true
+
+# 其它后端静态目录（如 /assets 之外的上传目录）
+[[redirects]]
+  from = "/upload/*"
+  to = "https://txyr.jxvcie.edu.cn/upload/:splat"
+  status = 200
+  force = true
+
+# SPA 路由
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
